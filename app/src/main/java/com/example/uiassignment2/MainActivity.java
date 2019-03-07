@@ -114,5 +114,6 @@ public class MainActivity extends AppCompatActivity {
         respQual.setText("");
         spinnerAge.setSelection(0);
         mainLayout.setVisibility(RelativeLayout.GONE);
+        name.requestFocus();
     }
 }
