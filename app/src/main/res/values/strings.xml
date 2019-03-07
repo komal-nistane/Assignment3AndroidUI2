@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">UIAssignment2</string>
+    <string name="title"> Survey Form</string>
+    <string name="name">Name</string>
+    <string name="age">Age</string>
+    <string name="qual">Qualification</string>
+</resources>

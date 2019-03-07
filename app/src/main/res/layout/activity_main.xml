@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Survey Form"
+        android:textColor="@android:color/black"
+        android:textColorLink="@android:color/black"
+        android:textSize="28sp" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="30dp"
+        android:text="Name"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_alignTop="@+id/name"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="55dp"
+        android:layout_toRightOf="@+id/name"
+        android:ems="10"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="50dp"
+        android:text="Age"
+        android:textColor="@android:color/black"
+        android:typeface="normal" />
+
+    <Spinner
+        android:id="@+id/spinnerAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etName"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="75dp"
+        android:layout_toRightOf="@+id/age"
+        android:layout_marginTop="30dp"
+
+        >
+
+    </Spinner>
+
+    <TextView
+        android:id="@+id/qual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/age"
+        android:layout_alignBottom="@+id/etQual"
+        android:layout_marginTop="30dp"
+        android:text="Qualification"
+        android:textColor="@android:color/black"
+
+        />
+
+    <EditText
+        android:id="@+id/etQual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinnerAge"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/qual"
+        android:ems="10"
+        android:layout_marginTop="25dp"
+        android:imeOptions="actionDone"
+        android:inputType="text" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/qual"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:text="Save" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/btnSimpleInterest"
+            android:layout_weight="1"
+            android:text="Clear" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/relLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout"
+        android:layout_marginTop="20dp"
+
+        >
+
+        <TextView
+            android:id="@+id/response"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Response"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+
+            />
+
+        <TextView
+            android:id="@+id/resname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/response"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="20dp"
+            android:text="Name"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/etResName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/response"
+            android:layout_alignTop="@+id/resname"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="55dp"
+            android:layout_toRightOf="@+id/resname"
+            android:ems="10"
+            android:inputType="none"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/txResAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/resname"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="5dp"
+            android:text="Age"
+            android:textColor="@android:color/black"
+            android:typeface="normal" />
+
+        <TextView
+            android:id="@+id/respAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etResName"
+            android:layout_alignTop="@+id/txResAge"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="55dp"
+            android:layout_toRightOf="@+id/resname"
+            android:ems="10"
+            android:inputType="none"
+            android:textColor="@android:color/black" />
+
+
+        <TextView
+            android:id="@+id/txQual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/respAge"
+            android:layout_alignBottom="@+id/respQual"
+            android:text="Qualification"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/respQual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/respAge"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="20dp"
+            android:layout_toRightOf="@+id/txQual"
+            android:ems="10"
+            android:layout_marginLeft="15dp"
+            android:imeOptions="actionDone"
+            android:inputType="none"
+            android:textColor="@android:color/black" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
