@@ -3,6 +3,7 @@ package com.example.uiassignment2;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     TextView resName, respAge, respQual;
     Spinner spinnerAge;
     Button btnSave, btnCancel;
-    ArrayAdapter<String> adapter ;
+    ArrayAdapter<String> adapter;
     RelativeLayout mainLayout;
 
     @Override
@@ -35,26 +36,23 @@ public class MainActivity extends AppCompatActivity {
         spinnerAge = (Spinner) findViewById(R.id.spinnerAge);
         btnCancel = (Button) findViewById(R.id.btnCancel);
         btnSave = (Button) findViewById(R.id.btnSave);
-        resName = (TextView)findViewById(R.id.etResName);
-        respAge = (TextView)findViewById(R.id.respAge);
-        respQual = (TextView)findViewById(R.id.respQual);
+        resName = (TextView) findViewById(R.id.etResName);
+        respAge = (TextView) findViewById(R.id.respAge);
+        respQual = (TextView) findViewById(R.id.respQual);
 
-       /* respQual.setEnabled(false);
-        respAge.setEnabled(false);
-        resName.setEnabled(false);*/
-
-        String[] arrayAgeSpinner = new String[] {
-                "Select","Between 20 to 25", "Between 25 to 30", "Between 30 to 35", "Between 35 to 40", "Between 40 to 45", "Between 45 to 50", "Above 50"};
-        adapter= new ArrayAdapter<String>(this,
+        Log.v("Init", "widgets initialised");
+        String[] arrayAgeSpinner = new String[]{
+                "Select", "Between 20 to 25", "Between 25 to 30", "Between 30 to 35", "Between 35 to 40", "Between 40 to 45", "Between 45 to 50", "Above 50"};
+        adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, arrayAgeSpinner);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        Log.v("Init", "Adapter initialised");
         spinnerAge.setAdapter(adapter);
         btnSave.setOnClickListener(listener);
         btnCancel.setOnClickListener(listener);
-         mainLayout=(RelativeLayout)this.findViewById(R.id.relLayout);
+        Log.v("Init", "Hide response layout");
+        mainLayout = (RelativeLayout) this.findViewById(R.id.relLayout);
         mainLayout.setVisibility(RelativeLayout.GONE);
-
-
     }
 
     View.OnClickListener listener = new View.OnClickListener() {
@@ -73,10 +71,15 @@ public class MainActivity extends AppCompatActivity {
         String nameRes = name.getText().toString().trim();
         String ageRes = spinnerAge.getSelectedItem().toString().trim();
         String qualRes = qual.getText().toString().trim();
-        if(validateFields(nameRes , ageRes, qualRes)){
+        Log.v("Name",nameRes);
+        Log.v("age",ageRes);
+        Log.v("qualification",qualRes);
+        if (validateFields(nameRes, ageRes, qualRes)) {
+            Log.v("result","Set result");
             resName.setText(nameRes);
             respAge.setText(ageRes);
             respQual.setText(qualRes);
+            Log.v("result","Layout is visible now");
             mainLayout.setVisibility(RelativeLayout.VISIBLE);
         }
     }
@@ -87,15 +90,15 @@ public class MainActivity extends AppCompatActivity {
             name.requestFocus();
             return false;
         }
-        if (spinnerAge.getSelectedItemPosition()==0) {
-            Toast.makeText(getApplicationContext(), "Please Enter Age",  Toast.LENGTH_SHORT).show();
+        if (spinnerAge.getSelectedItemPosition() == 0) {
+            Toast.makeText(getApplicationContext(), "Please Enter Age", Toast.LENGTH_SHORT).show();
             spinnerAge.setFocusable(true);
             spinnerAge.setFocusableInTouchMode(true);
             spinnerAge.requestFocus();
             return false;
         }
         if (TextUtils.isEmpty(qualRes)) {
-            Toast.makeText(getApplicationContext(), "Please Enter Qualification",  Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Please Enter Qualification", Toast.LENGTH_SHORT).show();
             qual.requestFocus();
             return false;
         }
@@ -103,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void clearFields() {
+        Log.v("clear","Clear fields and hide response layout");
         name.setText("");
         qual.setText("");
         resName.setText("");
